@@ -35,6 +35,7 @@ ApplicationWindow {
     property string _flightID
     property bool   _utmspSendActTrigger
     property bool   _utmspStartTelemetry
+    property var    _activeVehicle:     QGroundControl.multiVehicleManager.activeVehicle
 
     Component.onCompleted: {
         //-- Full screen on mobile or tiny screens
