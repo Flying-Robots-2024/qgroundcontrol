@@ -340,6 +340,23 @@ ApplicationWindow {
                             }
                         }
 
+                        SubMenuButton {
+                            id:                 rebootOnToolbarButton
+                            height:             toolSelectDialog._toolButtonHeight
+                            Layout.fillWidth:   true
+                            visible:            QGroundControl.multiVehicleManager.parameterReadyVehicleAvailable &&
+                                                !QGroundControl.multiVehicleManager.activeVehicle.usingHighLatencyLink
+                            text:               qsTr("Reboot Vehicle")
+                            onClicked: {
+                                mainWindow.showMessageDialog(qsTr("Reboot Vehicle"),
+                                    qsTr("Select Ok to reboot vehicle."),
+                                    Dialog.Cancel | Dialog.Ok,
+                                    function() { _activeVehicle.rebootVehicle() })
+                            }
+                        }
+
+
+
                         ColumnLayout {
                             width:                  innerLayout.width
                             spacing:                0
